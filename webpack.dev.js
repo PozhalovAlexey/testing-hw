@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const common = require('./webpack.config');
+const common = require('./webpack.common');
 
 module.exports = merge(common, {
   // Set the mode to development or production

@@ -1,4 +1,5 @@
 {
+  "plugins": ["prettier"],
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "env": {
     "es6": true,
@@ -6,10 +7,25 @@
     "jest/globals": true
   },
   "parserOptions": {
+    "ecmaVersion": 2022,
     "sourceType": "module"
   },
   "rules": {
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "quotes": ["error", "double"],
+    "no-restricted-syntax": ["error", "LabeledStatement", "WithStatement"],
+    "allowTernary": "off",
+    "no-plusplus": "off",
+    "no-alert": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    // "comma-dangle": ["error", "never"],
+    "comma-dangle": "off",
+    // "import/extensions": ["error", "ignorePackages"],
+    "import/no-extraneous-dependencies": "off",
+    "no-undef": "off",
+    "jest/expect-expect": "off",
+    "linebreak-style": [0, "error", "windows"]
   },
   "overrides": [
     {
