@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest",
     "lint": "eslint",
     "e2e": "jest",
@@ -42,6 +42,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-prettier": "^5.1.2",
+    "html-loader": "^4.2.0",
+    "schema-utils": "^4.2.0",
     "webpack-dev-server": "^4.15.1"
   }
 }

@@ -1,9 +1,11 @@
-function displayPaymentSystem(cardNumber) {
+export default function displayPaymentSystem(cardNumber) {
   document.querySelectorAll('.card-item').forEach((card) => {
-    card.forEach((c) =>
-      c.classList.add('disabled'))
+    card.classList.add('disabled')
   });
-  const firstIndex = cardNumber.slice(0, 1)
+
+  console.log(cardNumber)
+  const firstIndex = cardNumber.toString().slice(0, 1)
+  console.log(cardNumber)
   switch (firstIndex) {
     case '2':
       document.querySelector('.card-mir').classList.remove('disabled');
@@ -18,7 +20,7 @@ function displayPaymentSystem(cardNumber) {
       alert('Ваша карта относится к платежной системе VISA');
       break;
   }
-  const twoIndex = cardNumber.slice(0, 2)
+  const twoIndex = cardNumber.toString().slice(0, 2)
   switch (+twoIndex) {
     case 50:
     case 56:
