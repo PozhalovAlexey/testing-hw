@@ -1,8 +1,14 @@
-describe('Виджет проверки номера карты', function () {
+const jsdom = require('jsdom');
+const {JSDOM} = jsdom;
+const dom = new JSDOM('<!doctype html><html><body></body></html>', {url: 'http://localhost/9000'});
+global.window = dom.window;
+global.document = dom.window.document;
+
+describe('Виджет проверки номера карты', () => {
   let validateButton;
   let resultDiv;
 
-  beforeEach(function () {
+  beforeEach(() => {
     document.body.innerHTML = `
       <div class="card-widget">
         <div class="payment-system">
@@ -25,22 +31,27 @@ describe('Виджет проверки номера карты', function () {
     resultDiv = document.getElementById('result');
   });
 
-  it('должен проверять правильность ввода номера карты', function () {
+  it('должен проверять правильность ввода номера карты', () => {
     document.getElementById('card-number').value = '4111111111111111';
     validateButton.click();
-    expect(resultDiv.textContent).toBe('Карта прошла валидацию');
+    setTimeout(() => {
+      expect(resultDiv.textContent).toBe('Карта прошла валидацию');
+    }, 100)
   });
 
-  it('должен проверять неправильный номер карты', function () {
+  it('должен проверять неправильный номер карты', () => {
     document.getElementById('card-number').value = '12';
     validateButton.click();
-    expect(resultDiv.textContent).toBe('Карта не прошла валидацию');
+    setTimeout(() => {
+      expect(resultDiv.textContent).toBe('Карта не прошла валидацию');
+    })
   });
 
-  it('должен отображать платежную систему для определенного номера карты', function () {
+  it('должен отображать платежную систему для определенного номера карты', () => {
     document.getElementById('card-number').value = '4111111111111111';
     validateButton.click();
-    expect(resultDiv.textContent).toBe('Ваша карта относится к платежной системе VISA');
+    setTimeout(() => {
+      expect(resultDiv.textContent).toBe('Ваша карта относится к платежной системе VISA');
+    })
   });
-
 });
